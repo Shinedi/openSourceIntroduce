@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>abstract</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    border:0;
+}
+    #abstract{
+         text-align:center;
+         height:283px;
+         position:relative;
+     }
+#aleft{
+    float:left;
+    width:95%;
+}
+#abstract h1{
+    margin-top:15px;
+    color:#693;
+}
+#abstract p{
+    margin:5px 0px;
+    color:#8c8c8c;
+
+}
+.p1{
+    font-weight:bold;
+    font-size:14px;
+}
+.p2{
+    font-size:10px;
+}
+#aleft #imgbox img{
+    width:180px;
+    height:180px;
+
+}
+#aright{
+    width:5%;
+    float:right;
+    position:relative;
+    top:35px;
+}
+#aright .contact{
+    width:50px;
+    height:50px;
+}
+.hidden{
+    height:50px;
+    display:none;
+    margin-right:50px;
+    float:right;}
+#ar11{
+    position:absolute;
+    top:10px;
+    right:5px;
+}
+#ar22{
+    position:absolute;
+    top:70px;
+    right:5px;
+}
+
+
+</style>
+</head>
+<body>
+<div id="abstract">
+    <div id="aleft">
+        <h1 align="center">Education 教育培训</h1>
+        <p class="p1" align="center">西部开源技术中心独创五大就业方向课程</p>
+        <p class="p2" align="center">LINUX系统运维工程师/JAVA EE工程师/Android工程师/Web前端工程师</p>
+        <div id="imgbox">
+            <img src="images/h-1.png"/>
+            <img src="images/h-2.png"/>
+            <img src="images/h-3.png"/>
+            <img src="images/h-4.png"/>
+        </div>
+    </div>
+    <div id="aright">
+        <p>
+            <img class="hidden" id="ar11" src="images/float_bar_qq_info.png"/>
+            <img class="contact" id="ar1" src="images/float_bar_qq.png"/>
+        </p>
+        <p>
+            <img class="hidden" id="ar22" src="images/float_bar_phone_info.png"/>
+            <img class="contact" id="ar2" src="images/float_bar_phone.png"/>
+        </p>
+        <p>
+            <img class="contact" id="ar3" src="images/float_bar_weichat.png"/>
+        </p>
+        <p>
+            <img class="contact" id="ar4" src="images/float_bar_top.png"/>
+        </p>
+    </div>
+</div>
+<script>
+    window.onload=function(){
+        var abox=document.getElementById("imgbox");
+        var aimg=abox.getElementsByTagName("img");
+        //alert(aimg.length);
+        for(var i=0;i<aimg.length;i++)
+        {
+            aimg[i].index=i;
+            aimg[i].onmouseover=function(){
+                this.src="images/h-"+(this.index+1)+"-over.png";
+            };
+            aimg[i].onmouseout=function(){
+
+                this.src="images/h-"+(this.index+1)+".png";;
+            };
+        }
+
+        var oImage1=document.getElementById('ar1');
+        var oLeft1=document.getElementById('ar11');
+        var timer=null;
+
+        oImage1.onmouseover=oLeft1.onmouseover=function(){
+            clearTimeout(timer);
+            oImage1.src="images/float_bar_qq-over.png";
+            oLeft1.style.display='block';
+
+        };
+        oImage1.onmouseout=oLeft1.onmouseout=function(){
+            oImage1.src="images/float_bar_qq.png";
+            timer=setTimeout(function(){
+                oLeft1.style.display='none';
+            },1000);
+        };
+        var oImage2=document.getElementById('ar2');
+        var oLeft2=document.getElementById('ar22');
+        var timer1=null;
+
+        oImage2.onmouseover=oLeft2.onmouseover=function(){
+            clearTimeout(timer1);
+            oImage2.src="images/float_bar_phone-over.png";
+            oLeft2.style.display='block';
+
+        };
+        oImage2.onmouseout=oLeft2.onmouseout=function(){
+            oImage2.src="images/float_bar_phone.png";
+
+            timer1=setTimeout(function(){
+                oLeft2.style.display='none';
+            },1000);
+        };
+    };
+</script>
+</body>
+</html>
